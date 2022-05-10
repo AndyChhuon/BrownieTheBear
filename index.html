@@ -16,6 +16,9 @@
     <!--Font Families-->
     <link href="//db.onlinewebfonts.com/c/d9a58a393d946d86051fbd9a0b594d2f?family=Audrey" rel="stylesheet" type="text/css"/>
     <link href="http://fonts.cdnfonts.com/css/blanka" rel="stylesheet">
+  
+    <!--Font Awesome-->
+    <script src="https://kit.fontawesome.com/b569b39868.js" crossorigin="anonymous"></script>
 
 
     <!-- Three Js import maps -->
@@ -73,7 +76,7 @@
     controls.enableDamping = true
     controls.target.set(0, 0, 0)
     controls.enableRotate = false;
-    //controls.enabled = false;
+    controls.enabled = false;
 
     const mouse = new THREE.Vector2();
     const raycaster = new THREE.Raycaster();
@@ -169,12 +172,20 @@
                     controls.enabled = false;
                     isdisplaytext = true;
                     document.getElementById("text_msg").style.visibility = "visible"
+                    document.getElementById('prompt').readOnly = false;              
+                    document.getElementById('ask_button').innerHTML = "Submit";                
+  
+
 
                     
                 }else{
                     controls.enabled = true;
                     isdisplaytext = false;
                     document.getElementById("text_msg").style.visibility = "hidden"
+                    document.getElementById("prompt").readOnly = true;                
+                    document.getElementById('ask_button').innerHTML = "Click on the bear to allow inputs.";                
+
+
                 }
 
             }
@@ -182,7 +193,6 @@
         //console.log(intersects[0].object.parent.name) //Prints bear
 
     }
-
 
     function animate() {
         requestAnimationFrame(animate)
@@ -205,36 +215,56 @@
 
     Brownie the b<span class = "ai_text">AI</span>r
     </div>
-    <div class="form-group fixed-bottom textbox">
-        <label for="comment">Ask Brownie:</label>
-        <textarea class="form-control" rows="2" id="comment"></textarea>
+    <div class="form-group fixed-bottom textbox" >
+        <div class="display_div">
+            <div class="text-center">
+                <i class='fas fa-chevron-circle-up displayParams'  id="upArrow" data-parent="#collapseableParams" data-toggle="collapse" data-target=".collapseableParams" onclick="  this.style.display = 'none';"></i>
+            </div>
+
+            <div class="container edit_params collapse collapseableParams">
+                <div>
+                        <i class="fa fa-window-minimize minimize" aria-hidden="true" data-parent="#collapseableParams" data-toggle="collapse" data-target=".collapseableParams" onclick="document.getElementById('upArrow').style.display = 'inline' "></i> </i>
+                        <br clear="all" />
+
+               </div>
+                <div class="text-center" style="margin-top: 4px; margin-bottom:10px;">
+                    Api Key: <input type="text" id="apiKey" name="apiKey" size="60" value="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">
+                </div>
+                <div class="text-center" style="width: 50%; float:left; margin-bottom:5px; ">
+                    Engine: <span id="engine_options"></span>
+                </div>
+                 
+                 <div class="text-center" style="width: 50%; float:right;">
+                    Job: <select name="jobs" id="jobs">
+                            <option value="completions">completions</option>
+                            <option value="edits">edits</option>
+                            <option value="search">search</option>
+
+                         </select>
+
+                 </div>
+                <br clear="all" />
+
+            </div>
+          </div>
+        <label for="comment" style="background-color: #C4A484;">Ask Brownie:</label>
+        <span class="ask_form" id="ask_form">
+        <textarea class="form-control" id="prompt" oninput= "this.style.height = this.scrollHeight+'px'" onfocus="this.style.height = this.scrollHeight+'px'; document.getElementById('ask_button').style.visibility = 'visible'" onblur="this.style.height = '65px'; document.getElementById('ask_button').style.visibility = 'hidden'" style="height: 65px; min-height: 65px;"></textarea>
+        <button class="ask_button" id="ask_button">Submit</button>
+        </span>
     </div>
 
     <div class="containter fixed-bottom text_msg" id="text_msg">
         <div class="msg_bear">
-            Hello! My name is Brownie the bAIr. What a lovely day it is today, isn't it? 
+            Hello! My name is Brownie the bAIr. What a lovely day it is today, isn't it?        
+
+
+
         </div>
         <div class="msg_bear">
-            Hello! My name is Brownie the bAIr. What a lovely day it is today, isn't it? 
+            Try to ask me something.
         </div>
-        <div class="msg_bear">
-            Hello! My name is Brownie the bAIr. What a lovely day it is today, isn't it? 
-        </div>
-        <div class="msg_bear">
-            Hello! My name is Brownie the bAIr. What a lovely day it is today, isn't it? 
-        </div>
-        <div class="msg_bear">
-            Hello! My name is Brownie the bAIr. What a lovely day it is today, isn't it? 
-        </div>
-        <div class="msg_bear">
-            Hello! My name is Brownie the bAIr. What a lovely day it is today, isn't it? 
-        </div>
-        <div class="msg_bear">
-            Hello! My name is Brownie the bAIr. What a lovely day it is today, isn't it? 
-        </div>
-        <div class="msg_bear">
-            Hello! My name is Brownie the bAIr. What may I do for you today?
-        </div>
+
         <div class="right-align">
         <div class="msg_user">
         aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa 

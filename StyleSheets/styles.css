@@ -35,7 +35,8 @@ body{
 .msg_bear{
     font-family: helvetica;
     display:block;
-    width: 30%;
+    width: fit-content;
+    max-width: 30%;
     overflow-wrap: break-word;
     background-color: rgba(238, 238, 238, 0.74);
     border-radius: 20px;
@@ -46,7 +47,8 @@ body{
 .msg_user{
     font-family: helvetica;
     display:block;
-    width: 30%;
+    width: fit-content;
+    max-width: 30%;
     overflow-wrap: break-word;
     background: linear-gradient(to bottom, #00D0EA 0%, #0085D1 100%);
     border-radius: 20px;
@@ -79,4 +81,65 @@ body{
 ::-webkit-scrollbar-thumb {
     box-shadow: inset 0 0 10px 10px rgb(75, 74, 74);
     border: solid 3px transparent;
+}
+
+.displayParams{
+    cursor: pointer;
+    color:black;
+    
+}
+
+.display_div{
+    position: relative;
+    bottom: -30px;  
+    font-weight: 500;
+}
+
+.displayParams:hover{
+    color:white;
+}
+
+.displayParams:active{
+    color:black;
+}
+
+.edit_params{
+    background-color: #ffe4c4;
+    border-radius: 5px;
+}
+#apiKey{
+    background-color: #F5F5DC;
+}
+
+.minimize{
+    padding: 3px;
+    margin-top: 2px;
+    float: right;
+    cursor: pointer;
+}
+
+.minimize:hover{
+    border-style: outset;
+}
+
+.minimize:active{
+    color:white;
+    border-color: white;
+}
+
+.ask_button{
+    position:absolute;
+    bottom:5px;
+    right : 5px;
+    border-radius: 4px;
+    font-size: 14px;
+    background: linear-gradient(to bottom, #00D0EA 0%, #0085D1 100%);
+    color: white;
+    font-family: helvetica;
+    font-weight: bold;
+    visibility: hidden;
+}
+
+.ask_form:hover .ask_button{
+    visibility: visible !important;
 }
