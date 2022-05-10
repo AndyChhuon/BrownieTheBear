@@ -1,5 +1,4 @@
-const key = "Bearer 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"
-const data = {
+/*const data = {
     prompt: "Write a poem about a dog wearing skis",
     temperature: 0.5,
     max_tokens: 64,
@@ -9,16 +8,15 @@ const data = {
    };
 
 async function openai(){
-    console.log(key)
-    test = await fetch("https://api.openai.com/v1/engines/text-curie-001/completions", {
+    await fetch("https://api.openai.com/v1/engines/text-curie-001/completions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: key,
+          "Authorization": "Bearer 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",
         },
         body: JSON.stringify(data),
-       });
-
-    console.log(test)
+       }).then(response => response.json())
+       .then(data => console.log(data.text));
 }
 openai()
+*/
