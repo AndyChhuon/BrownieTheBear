@@ -44,7 +44,7 @@
     import { OrbitControls } from './three.js/examples/jsm/controls/OrbitControls.js'
     import { FBXLoader } from './three.js/examples/jsm/loaders/FBXLoader.js'
 
-    var isdisplaytext = false;
+    var isdisplaytext = true;
     const scene = new THREE.Scene()
     //scene.add(new THREE.AxesHelper(5)) //Display x,y,z axis
     scene.background = new THREE.Color(0xC4A484);
@@ -165,12 +165,16 @@
         }else{
             document.body.style.cursor = "pointer"
             document.body.onclick = function(){
-                if(isdisplaytext){
-                    controls.enabled = true;
-                    isdisplaytext = false;
-                }else{
+                if(!isdisplaytext){
                     controls.enabled = false;
                     isdisplaytext = true;
+                    document.getElementById("text_msg").style.visibility = "visible"
+
+                    
+                }else{
+                    controls.enabled = true;
+                    isdisplaytext = false;
+                    document.getElementById("text_msg").style.visibility = "hidden"
                 }
 
             }
@@ -204,6 +208,43 @@
     <div class="form-group fixed-bottom textbox">
         <label for="comment">Ask Brownie:</label>
         <textarea class="form-control" rows="2" id="comment"></textarea>
-      </div>
+    </div>
+
+    <div class="containter fixed-bottom text_msg" id="text_msg">
+        <div class="msg_bear">
+            Hello! My name is Brownie the bAIr. What a lovely day it is today, isn't it? 
+        </div>
+        <div class="msg_bear">
+            Hello! My name is Brownie the bAIr. What a lovely day it is today, isn't it? 
+        </div>
+        <div class="msg_bear">
+            Hello! My name is Brownie the bAIr. What a lovely day it is today, isn't it? 
+        </div>
+        <div class="msg_bear">
+            Hello! My name is Brownie the bAIr. What a lovely day it is today, isn't it? 
+        </div>
+        <div class="msg_bear">
+            Hello! My name is Brownie the bAIr. What a lovely day it is today, isn't it? 
+        </div>
+        <div class="msg_bear">
+            Hello! My name is Brownie the bAIr. What a lovely day it is today, isn't it? 
+        </div>
+        <div class="msg_bear">
+            Hello! My name is Brownie the bAIr. What a lovely day it is today, isn't it? 
+        </div>
+        <div class="msg_bear">
+            Hello! My name is Brownie the bAIr. What may I do for you today?
+        </div>
+        <div class="right-align">
+        <div class="msg_user">
+        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa 
+        </div>
+        </div>
+           <div class="msg_bear">
+            sssssssssssssssss
+        </div>
+        
+    </div>
+
 </body>
 </html>
