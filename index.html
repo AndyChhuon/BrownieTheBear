@@ -11,6 +11,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="Javascript\openai.js"></script>
+
+    <link rel="stylesheet" href="StyleSheets\bubble.css">
     <link rel="stylesheet" href="StyleSheets\styles.css">
 
     <!--Font Families-->
@@ -110,7 +112,7 @@
                             }
                         } );
                 scene.add(object)
-                object.position.set(-0.2,0.2,0) //Place bear's nose in the center
+                object.position.set(-0.2,0.2,-0.4) //Place bear's nose in the center
                 BearObjPointer = object;
                 BearObjPointer.name = "Bear";
             },
@@ -228,14 +230,14 @@
 
                </div>
                 <div class="text-center" style="margin-top: 4px; margin-bottom:10px;">
-                    Api Key: <input type="text" id="apiKey" name="apiKey" size="60" value="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">
+                    Api Key: <input type="text" id="apiKey" name="apiKey" size="60">
                 </div>
                 <div class="text-center" style="width: 50%; float:left; margin-bottom:5px; ">
                     Engine: <span id="engine_options"></span>
                 </div>
                  
                  <div class="text-center" style="width: 50%; float:right;">
-                    Job: <select name="jobs" id="jobs">
+                    Job: <select name="jobs" id="jobs" onchange="check_job()">
                             <option value="completions">completions</option>
                             <option value="edits">edits</option>
                             <option value="search">search</option>
@@ -249,8 +251,8 @@
           </div>
         <label for="comment" style="background-color: #C4A484;">Ask Brownie:</label>
         <span class="ask_form" id="ask_form">
-        <textarea class="form-control" id="prompt" oninput= "this.style.height = this.scrollHeight+'px'" onfocus="this.style.height = this.scrollHeight+'px'; document.getElementById('ask_button').style.visibility = 'visible'" onblur="this.style.height = '65px'; document.getElementById('ask_button').style.visibility = 'hidden'" style="height: 65px; min-height: 65px;"></textarea>
-        <button class="ask_button" id="ask_button">Submit</button>
+        <textarea class="form-control" id="prompt" oninput= "this.style.height = this.scrollHeight+'px'" onfocus="this.style.height = this.scrollHeight+'px'; document.getElementById('ask_button').style.visibility = 'visible'" onblur="this.style.height = '65px'; document.getElementById('ask_button').style.visibility = 'hidden'" style="height: 65px; min-height: 65px; max-height: 400px;"></textarea>
+        <button class="ask_button" id="ask_button" onclick="userText();submit();">Submit</button>
         </span>
     </div>
 
@@ -265,16 +267,18 @@
             Try to ask me something.
         </div>
 
-        <div class="right-align">
-        <div class="msg_user">
-        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa 
-        </div>
-        </div>
-           <div class="msg_bear">
-            sssssssssssssssss
-        </div>
-        
+        <span id="new_txt_msg">
+
+        </span>
+
+
+        <div class="typing-indicator" id="Beartyping" style="display: none;">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
     </div>
+    
 
 </body>
 </html>
