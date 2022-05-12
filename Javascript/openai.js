@@ -231,7 +231,6 @@ window.onload = function(){
 
       document.getElementById("apiKey").value = data;
       getEngines()
-      check_job()
 
 
 

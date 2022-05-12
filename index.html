@@ -38,7 +38,7 @@
     <title>Shopify OpenAi</title>
 </head>     
 
-<body style="margin: 0;">
+<body style="margin: 0; background-image: url(background2.jpg);">
 
 
 
@@ -52,7 +52,6 @@
     var isdisplaytext = true;
     const scene = new THREE.Scene()
     //scene.add(new THREE.AxesHelper(5)) //Display x,y,z axis
-    scene.background = new THREE.Color(0xC4A484);
 
     const light = new THREE.PointLight() //Lighting
     light.position.set(0.8, 1.4, 1.0)
@@ -69,7 +68,7 @@
     )
     camera.position.set(0.2, 0, -5)
 
-    const renderer = new THREE.WebGLRenderer() //Renderer
+    const renderer = new THREE.WebGLRenderer({ alpha: true }) //Renderer
     renderer.setSize(window.innerWidth, window.innerHeight)
     document.body.appendChild(renderer.domElement)
 
@@ -249,7 +248,7 @@
 
             </div>
           </div>
-        <label for="comment" style="background-color: #C4A484;">Ask Brownie:</label>
+        <label for="comment" style="background-color: rgb(214, 218, 161); border-radius: 1px;">Ask Brownie:</label>
         <span class="ask_form" id="ask_form">
         <textarea class="form-control" id="prompt" oninput= "this.style.height = this.scrollHeight+'px'" onfocus="this.style.height = this.scrollHeight+'px'; document.getElementById('ask_button').style.visibility = 'visible'" onblur="this.style.height = '65px'; document.getElementById('ask_button').style.visibility = 'hidden'" style="height: 65px; min-height: 65px; max-height: 400px;"></textarea>
         <button class="ask_button" id="ask_button" onclick="userText();submit();">Submit</button>
