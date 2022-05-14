@@ -138,6 +138,7 @@ body{
     font-family: helvetica;
     font-weight: bold;
     visibility: hidden;
+    cursor: pointer;
 }
 
 .ask_form:hover .ask_button{

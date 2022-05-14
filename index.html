@@ -151,7 +151,7 @@
 
     function onMouseMove(event){
 
-    BearObjPointer.lookAt(-((window.innerWidth/2)-event.clientX),-((window.innerHeight/2)-event.clientY),500); //Position bear according to mouse move  
+    BearObjPointer.lookAt(-((window.innerWidth/2)-event.clientX),-((window.innerHeight/2)-event.clientY),550); //Position bear according to mouse move  
     // calculate pointer position in normalized device coordinates
     // (-1 to +1) for both components
     mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
@@ -237,10 +237,25 @@
                  
                  <div class="text-center" style="width: 50%; float:right;">
                     Job: <select name="jobs" id="jobs" onchange="check_job()">
-                            <option value="completions">completions</option>
-                            <option value="edits">edits</option>
-                            <option value="search">search</option>
+                            <optgroup label="Jobs">
 
+                                <option value="completions">completions</option>
+                                <option value="edits">edits</option>
+                                <option value="search">search</option>
+                            </optgroup>
+
+                            <optgroup label="Presets">
+                                <option value="sarcastic_marv" selected="selected">Sarcastic Marv</option>
+                                <option value="Q&A">Q&A</option>
+                                <option value="chat">chat (AI assistant)</option>
+                                <option value="parse_data">Parse Unstructure Data</option>
+                                <option value="classification">classification</option>
+                                <option value="essay_outline">Essay Outline</option>
+                                <option value="restaurant_review">Restaurant Review</option>
+                                <option value="time_complexity">Time Complexity</option>
+
+                                
+                            </optgroup>
                          </select>
 
                  </div>
