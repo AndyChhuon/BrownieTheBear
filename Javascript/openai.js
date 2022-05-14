@@ -332,6 +332,14 @@ function userText(){
   `</div>
   </div>`
 
+  localStorage.setItem('brownieHtml', localStorage.getItem("brownieHtml")+
+    ` <div class='right-align'>
+    <div class='msg_user'>` 
+    +promptValue +
+    `</div>
+    </div>`
+    )
+
   submitted_text = promptValue;
   document.getElementById("prompt").value = "";
 }
@@ -344,6 +352,12 @@ function bearText(msg){
   document.getElementById("new_txt_msg").innerHTML += `<div class="msg_bear">` 
   +msg +
   ` </div>`
+
+  localStorage.setItem('brownieHtml', localStorage.getItem("brownieHtml")+
+  `<div class="msg_bear">` 
+  +msg +
+  ` </div>`
+  )
 
 }
 
@@ -385,6 +399,20 @@ async function getEngines(){ //Get list of engines from API and display as selec
 
 
 window.onload = function(){
+  if (localStorage.getItem("brownieHtml") == null) {
+    localStorage.setItem('brownieHtml', `<div class="msg_bear">
+    Hello! My name is Brownie the bAIr. What a lovely day it is today, isn't it?        
+
+
+
+    </div>
+    <div class="msg_bear">
+        Try to ask me something.
+    </div>`)
+
+  }
+
+  document.getElementById("new_txt_msg").innerHTML = localStorage.getItem("brownieHtml");
 
 
   $.ajax({ //Get api key from server (to avoid OpenAi from detecting and changing api key)

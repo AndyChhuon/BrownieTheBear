@@ -145,3 +145,45 @@ body{
     visibility: visible !important;
 }
 
+
+@media only screen and (max-width: 645px) {
+    #new_txt_msg{
+        font-size: 14px;
+    }
+    .msg_bear{
+        max-width: 40%;
+    }
+
+    .msg_user{
+        max-width: 40%;
+    }
+  }
+
+@media only screen and (max-width: 420px) {
+    #new_txt_msg{
+        font-size: 11px;
+    }
+    .msg_bear{
+        max-width: 75%;
+    }
+
+    .msg_user{
+        max-width: 75%;
+    }
+}
+
+@media only screen and (max-width: 285px) {
+    #new_txt_msg{
+        font-size: 11px;
+    }
+    .msg_bear{
+        max-width: 60%;
+    }
+
+    .msg_user{
+        max-width: 60%;
+    }
+}
+
+
+

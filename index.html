@@ -151,7 +151,7 @@
 
     function onMouseMove(event){
 
-    BearObjPointer.lookAt(-((window.innerWidth/2)-event.clientX),-((window.innerHeight/2)-event.clientY),400); //Position bear according to mouse move  
+    BearObjPointer.lookAt(-((window.innerWidth/2)-event.clientX),-((window.innerHeight/2)-event.clientY),800); //Position bear according to mouse move  
     // calculate pointer position in normalized device coordinates
     // (-1 to +1) for both components
     mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
@@ -275,15 +275,7 @@
     </div>
 
     <div class="containter fixed-bottom text_msg" id="text_msg">
-        <div class="msg_bear">
-            Hello! My name is Brownie the bAIr. What a lovely day it is today, isn't it?        
 
-
-
-        </div>
-        <div class="msg_bear">
-            Try to ask me something.
-        </div>
 
         <span id="new_txt_msg">
 
