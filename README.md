@@ -1,7 +1,7 @@
 # Brownie The b(AI)r
 A web app that combines ThreeJs and [Openai API ](https://beta.openai.com/docs/introduction/overview) to allow users to iteract with a living, talking bear (named Brownie). Users can select among an array of Openai engines and jobs for said engine to complete. Examples include chatbots, Q&A, and finding the time complexity of an algorithm.
 
-* [See the web app](https://andychhuon.github.io/Shopify-Frontend/)
+* [See the web app](https://andychhuon.github.io/BrownieTheBear/)
 
 
 # Screenshots
