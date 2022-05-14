@@ -401,6 +401,8 @@ window.onload = function(){
     })
  }
 
+ 
+
 /*
 Note: For HTTP errors we can check the response. ok property to see if the request failed and reject the promise ourselves by calling return Promise
 */

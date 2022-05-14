@@ -168,7 +168,13 @@
 
         }else{
             document.body.style.cursor = "pointer"
-            document.body.onclick = function(){
+            document.body.onclick = bearclick;
+        }
+        //console.log(intersects[0].object.parent.name) //Prints bear
+
+    }
+
+    function bearclick(){
                 if(!isdisplaytext){
                     controls.enabled = false;
                     isdisplaytext = true;
@@ -189,11 +195,8 @@
 
                 }
 
-            }
         }
-        //console.log(intersects[0].object.parent.name) //Prints bear
-
-    }
+    
 
     function animate() {
         requestAnimationFrame(animate)
@@ -209,7 +212,8 @@
     }
 
     animate()
-    
+    window.bearclick = bearclick;
+    window.isdisplaytext = isdisplaytext;
     </script>
 
     <div class="container fixed-top text-center title_brownie">
@@ -265,7 +269,7 @@
           </div>
         <label for="comment" style="background-color: rgb(214, 218, 161); border-radius: 1px;">Ask Brownie:</label>
         <span class="ask_form" id="ask_form">
-        <textarea class="form-control" id="prompt" oninput= "this.style.height = this.scrollHeight+'px'" onfocus="this.style.height = this.scrollHeight+'px'; document.getElementById('ask_button').style.visibility = 'visible'" onblur="this.style.height = '65px'; document.getElementById('ask_button').style.visibility = 'hidden'" style="height: 65px; min-height: 65px; max-height: 400px;"></textarea>
+        <textarea class="form-control" id="prompt" onclick = "if(document.getElementById('ask_button').innerHTML == 'Click on the bear to allow inputs.'){bearclick()};" oninput= "this.style.height = this.scrollHeight+'px'" onfocus="this.style.height = this.scrollHeight+'px'; document.getElementById('ask_button').style.visibility = 'visible'" onblur="this.style.height = '65px'; document.getElementById('ask_button').style.visibility = 'hidden'" style="height: 65px; min-height: 65px; max-height: 400px;"></textarea>
         <button class="ask_button" id="ask_button" onclick="userText();submit();">Submit</button>
         </span>
     </div>
