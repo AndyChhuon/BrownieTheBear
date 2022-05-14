@@ -111,7 +111,7 @@
                             }
                         } );
                 scene.add(object)
-                object.position.set(-0.2,0.2,-0.4) //Place bear's nose in the center
+                object.position.set(-0.2,0.5,-0.4) //Place bear's nose in the center
                 BearObjPointer = object;
                 BearObjPointer.name = "Bear";
             },
@@ -151,7 +151,7 @@
 
     function onMouseMove(event){
 
-    BearObjPointer.lookAt(-((window.innerWidth/2)-event.clientX),-((window.innerHeight/2)-event.clientY),550); //Position bear according to mouse move  
+    BearObjPointer.lookAt(-((window.innerWidth/2)-event.clientX),-((window.innerHeight/2)-event.clientY),700); //Position bear according to mouse move  
     // calculate pointer position in normalized device coordinates
     // (-1 to +1) for both components
     mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
